@@ -1,11 +1,7 @@
 RewriteEngine on
 
-# Force www
-RewriteCond %{HTTP_HOST} ^politoinginf.it [NC]
-RewriteRule ^(.*)$ http://www.politoinginf.it/$1 [L,R=301,NC]
-
 # Redirect of the site
-RedirectMatch ^.*://www.politoinginf.it$ http://polito-inginf.github.io/politoinginf.github.io
+RedirectMatch ^.*politoinginf.it/?$ http://polito-inginf.github.io/politoinginf.github.io
 
 # Redirect of the /about.html endpoint
 RedirectMatch ^.*/about.html$ http://polito-inginf.github.io/politoinginf.github.io/about.html
@@ -19,9 +15,6 @@ RedirectMatch ^.*/material.html$ http://polito-inginf.github.io/politoinginf.git
 # Remove the .html from the URLs
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteRule ^([^.]+)$ $1.html [NC,L]
-
-# Prohibits access to hidden files
-RedirectMatch 404 /\..*$
 
 # Set the page for the 404 error
 ErrorDocument 404 /404.html
