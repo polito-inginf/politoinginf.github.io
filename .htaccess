@@ -4,6 +4,9 @@ RewriteEngine on
 RewriteCond %{HTTP_HOST} ^esempio.com [NC]
 RewriteRule ^(.*)$ http://www.esempio.com/$1 [L,R=301,NC]
 
+# Redirect of the site
+RedirectMatch ^http://www.politoinginf.it$ http://polito-inginf.github.io/politoinginf.github.io
+
 # Redirect of the /about.html endpoint
 RedirectMatch ^.*/about.html$ http://polito-inginf.github.io/politoinginf.github.io/about.html
 
